@@ -1,0 +1,405 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capadatos\\citasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\citasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capadatos\\especialidadesdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\especialidadesdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capadatos\\facturaciondal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\facturaciondal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capadatos\\medicosdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\medicosdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capadatos\\pacientesdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\pacientesdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capadatos\\tratamientosdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B1FD1A7-BAC1-4261-8324-4237863F27BD}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\tratamientosdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capaentidad\\citascls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\citascls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capaentidad\\especialidadescls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\especialidadescls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capaentidad\\facturacioncls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\facturacioncls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capaentidad\\medicoscls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\medicoscls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capaentidad\\pacientescls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\pacientescls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capaentidad\\tratamientoscls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E84576-352A-4BD7-90F6-3457E640FEF5}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\tratamientoscls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capanegocio\\tratamientosbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\tratamientosbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capanegocio\\pacientesbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\pacientesbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capanegocio\\medicosbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\medicosbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capanegocio\\facturacionbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\facturacionbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capanegocio\\especialidadesbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\especialidadesbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\capanegocio\\citasbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9797D6C4-6F50-46BD-AB1A-4A68F9F8E22B}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\citasbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\gestionhospitalaria\\wwwroot\\js\\facturacion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|solutionrelative:gestionhospitalaria\\wwwroot\\js\\facturacion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\gestionhospitalaria\\wwwroot\\js\\tratamientos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|solutionrelative:gestionhospitalaria\\wwwroot\\js\\tratamientos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\gestionhospitalaria\\wwwroot\\js\\citas.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|solutionrelative:gestionhospitalaria\\wwwroot\\js\\citas.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\gestionhospitalaria\\wwwroot\\js\\especialidades.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|solutionrelative:gestionhospitalaria\\wwwroot\\js\\especialidades.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\gestionhospitalaria\\wwwroot\\js\\medicos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|solutionrelative:gestionhospitalaria\\wwwroot\\js\\medicos.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|c:\\users\\eduag\\onedrive\\escritorio\\web3p\\gestionhospitalaria\\gestionhospitalaria\\wwwroot\\js\\pacientes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{65207923-E66D-4929-9ED0-87BC52B0CE78}|GestionHospitalaria\\GestionHospitalaria.csproj|solutionrelative:gestionhospitalaria\\wwwroot\\js\\pacientes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CitasCLS.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\CitasCLS.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\CitasCLS.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\CitasCLS.cs",
+              "RelativeToolTip": "CapaEntidad\\CitasCLS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:23:54.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EspecialidadesCLS.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\EspecialidadesCLS.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\EspecialidadesCLS.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\EspecialidadesCLS.cs",
+              "RelativeToolTip": "CapaEntidad\\EspecialidadesCLS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:24:08.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TratamientosDAL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\TratamientosDAL.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\TratamientosDAL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\TratamientosDAL.cs",
+              "RelativeToolTip": "CapaDatos\\TratamientosDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:23:41.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PacientesDAL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\PacientesDAL.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\PacientesDAL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\PacientesDAL.cs",
+              "RelativeToolTip": "CapaDatos\\PacientesDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:23:15.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MedicosDAL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\MedicosDAL.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\MedicosDAL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\MedicosDAL.cs",
+              "RelativeToolTip": "CapaDatos\\MedicosDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:22:59.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FacturacionDAL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\FacturacionDAL.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\FacturacionDAL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\FacturacionDAL.cs",
+              "RelativeToolTip": "CapaDatos\\FacturacionDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:22:38.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EspecialidadesDAL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\EspecialidadesDAL.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\EspecialidadesDAL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\EspecialidadesDAL.cs",
+              "RelativeToolTip": "CapaDatos\\EspecialidadesDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:22:25.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CitasDAL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\CitasDAL.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\CitasDAL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaDatos\\CitasDAL.cs",
+              "RelativeToolTip": "CapaDatos\\CitasDAL.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:22:14.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FacturacionCLS.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\FacturacionCLS.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\FacturacionCLS.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\FacturacionCLS.cs",
+              "RelativeToolTip": "CapaEntidad\\FacturacionCLS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:24:21.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MedicosCLS.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\MedicosCLS.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\MedicosCLS.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\MedicosCLS.cs",
+              "RelativeToolTip": "CapaEntidad\\MedicosCLS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:24:35.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PacientesCLS.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\PacientesCLS.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\PacientesCLS.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\PacientesCLS.cs",
+              "RelativeToolTip": "CapaEntidad\\PacientesCLS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:24:57.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TratamientosCLS.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\TratamientosCLS.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\TratamientosCLS.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaEntidad\\TratamientosCLS.cs",
+              "RelativeToolTip": "CapaEntidad\\TratamientosCLS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:25:11.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TratamientosBL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\TratamientosBL.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\TratamientosBL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\TratamientosBL.cs",
+              "RelativeToolTip": "CapaNegocio\\TratamientosBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:27:29.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PacientesBL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\PacientesBL.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\PacientesBL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\PacientesBL.cs",
+              "RelativeToolTip": "CapaNegocio\\PacientesBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:27:09.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MedicosBL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\MedicosBL.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\MedicosBL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\MedicosBL.cs",
+              "RelativeToolTip": "CapaNegocio\\MedicosBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:26:51.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FacturacionBL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\FacturacionBL.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\FacturacionBL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\FacturacionBL.cs",
+              "RelativeToolTip": "CapaNegocio\\FacturacionBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:26:24.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EspecialidadesBL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\EspecialidadesBL.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\EspecialidadesBL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\EspecialidadesBL.cs",
+              "RelativeToolTip": "CapaNegocio\\EspecialidadesBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:26:03.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CitasBL.cs",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\CitasBL.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\CitasBL.cs",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\CapaNegocio\\CitasBL.cs",
+              "RelativeToolTip": "CapaNegocio\\CitasBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T23:25:40.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Facturacion.js",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Facturacion.js",
+              "RelativeDocumentMoniker": "GestionHospitalaria\\wwwroot\\js\\Facturacion.js",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Facturacion.js",
+              "RelativeToolTip": "GestionHospitalaria\\wwwroot\\js\\Facturacion.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-21T23:20:23.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Tratamientos.js",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Tratamientos.js",
+              "RelativeDocumentMoniker": "GestionHospitalaria\\wwwroot\\js\\Tratamientos.js",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Tratamientos.js",
+              "RelativeToolTip": "GestionHospitalaria\\wwwroot\\js\\Tratamientos.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-21T23:20:08.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Citas.js",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Citas.js",
+              "RelativeDocumentMoniker": "GestionHospitalaria\\wwwroot\\js\\Citas.js",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Citas.js",
+              "RelativeToolTip": "GestionHospitalaria\\wwwroot\\js\\Citas.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-21T23:19:50.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Especialidades.js",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Especialidades.js",
+              "RelativeDocumentMoniker": "GestionHospitalaria\\wwwroot\\js\\Especialidades.js",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Especialidades.js",
+              "RelativeToolTip": "GestionHospitalaria\\wwwroot\\js\\Especialidades.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-21T23:19:37.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Medicos.js",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Medicos.js",
+              "RelativeDocumentMoniker": "GestionHospitalaria\\wwwroot\\js\\Medicos.js",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Medicos.js",
+              "RelativeToolTip": "GestionHospitalaria\\wwwroot\\js\\Medicos.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-21T23:19:20.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Pacientes.js",
+              "DocumentMoniker": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Pacientes.js",
+              "RelativeDocumentMoniker": "GestionHospitalaria\\wwwroot\\js\\Pacientes.js",
+              "ToolTip": "C:\\Users\\eduag\\OneDrive\\Escritorio\\Web3P\\GestionHospitalaria\\GestionHospitalaria\\wwwroot\\js\\Pacientes.js",
+              "RelativeToolTip": "GestionHospitalaria\\wwwroot\\js\\Pacientes.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-21T23:18:58.151Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

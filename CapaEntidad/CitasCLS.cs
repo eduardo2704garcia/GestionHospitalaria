@@ -8,5 +8,10 @@ namespace CapaEntidad
 {
     public class CitasCLS
     {
+        public int PacienteId { get; set; }
+        public int MedicoId { get; set; }
+        public DateTime  FechaHora { get; set; }
+        public string Estado {  get; set; }
+
     }
 }

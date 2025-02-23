@@ -8,5 +8,11 @@ namespace CapaEntidad
 {
     public class TratamientosCLS
     {
+        public int Id { get; set; }
+        public int PacienteId { get; set; }
+        public string Descripcion { get; set; }
+        public DateOnly Fecha { get; set; }
+        public decimal Costo { get; set; }
+
     }
 }

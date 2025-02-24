@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CapaDatos;
 using CapaEntidad;
-using CapaNegocios;
+using CapaNegocio;
 
 namespace CapaPresentacion.Controllers
 {
@@ -100,7 +100,7 @@ namespace CapaPresentacion.Controllers
             public int GuardarPaciente(PacientesCLS oPacienteCLS)
             {
                 PacientesBL obj = new PacientesBL();
-                return obj.GuardarPacientes(oPacienteCLS);
+                return obj.GuardarPaciente(oPacienteCLS);
             }
         }
 }

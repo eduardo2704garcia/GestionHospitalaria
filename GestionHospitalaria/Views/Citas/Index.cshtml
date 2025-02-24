@@ -1,0 +1,59 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 p-4">
+    <!-- Header del Módulo -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h3 fw-bold text-dark">
+            <i class="bi bi-people-fill me-2"></i>Gestión de Pacientes
+        </h2>
+        <div class="d-flex gap-2">
+            <input type="search" class="form-control" placeholder="Buscar paciente...">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalPaciente">
+                <i class="bi bi-plus-lg"></i> Nuevo
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabla de Pacientes -->
+    <div class="card module-card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-header">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Género</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>María González</td>
+                            <td>35</td>
+                            <td>Femenino</td>
+                            <td>555-1234</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-1">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Más filas... -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">

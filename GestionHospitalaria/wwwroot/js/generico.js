@@ -85,15 +85,17 @@ function generarTabla(res) {
     let contenido = "";
     let cabeceras = objConfiguracionGlobal.cabeceras;
     let propiedades = objConfiguracionGlobal.propiedades;
-    contenido += "<table class='table'>";
-    contenido += "<thead><tr>";
+
+    contenido += "<div class='table-responsive'>"; //Para hacerle responsive
+    contenido += "<table class='table table-striped table-hover table-bordered'>";//colores distintos en cada fila
+    contenido += "<thead class='table-dark'><tr>";//Fondo oscuro al encabezado
 
     for (let i = 0; i < cabeceras.length; i++) {
-        contenido += "<th>" + cabeceras[i] + "</th>";
+        contenido += "<th class='text-center'>" + cabeceras[i] + "</th>";
     }
 
     if (objConfiguracionGlobal.editar === true || objConfiguracionGlobal.eliminar === true) {
-        contenido += "<th>Operaciones</th>";
+        contenido += "<th class='text-center'>Operaciones</th>";
     }
 
     contenido += "</tr></thead>";
@@ -105,22 +107,22 @@ function generarTabla(res) {
         contenido += "<tr>";
         for (let j = 0; j < propiedades.length; j++) {
             let propiedadActual = propiedades[j];
-            contenido += "<td>" + (obj[propiedadActual] !== null ? obj[propiedadActual] : "") + "</td>";
+            contenido += "<td class='text-center'>" + (obj[propiedadActual] !== null ? obj[propiedadActual] : "") + "</td>";
         }
         if (objConfiguracionGlobal.editar === true || objConfiguracionGlobal.eliminar === true) {
             let propiedadID = objConfiguracionGlobal.propiedadID;
-            contenido += "<td>";
+            contenido += "<td class='text-center'>";
             if (objConfiguracionGlobal.editar === true) {
-                contenido += `<i onclick="Editar(${obj[propiedadID]})" class="btn btn-primary">Editar</i>`;
+                contenido += `<button onclick="Editar(${obj[propiedadID]})" class="btn btn-primary btn-sm mx-1">Editar</button>`;//tamaño y separacion para eliminar y editar
             }
             if (objConfiguracionGlobal.eliminar === true) {
-                contenido += `<i onclick="Eliminar(${obj[propiedadID]})" class="btn btn-danger">Eliminar</i>`;
+                contenido += `<button onclick="Eliminar(${obj[propiedadID]})" class="btn btn-danger btn-sm mx-1">Eliminar</button>`;//lo mismo
             }
             contenido += "</td>";
         }
         contenido += "</tr>";
     }
 
-    contenido += "</tbody></table>";
+    contenido += "</tbody></table></div>";
     return contenido;
 }

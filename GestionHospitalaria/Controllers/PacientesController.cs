@@ -28,12 +28,18 @@ namespace CapaPresentacion.Controllers
         }
 
         [HttpPost]
-        public IActionResult Guardar(PacientesCLS paciente)
+        public IActionResult GuardarPaciente(PacientesCLS paciente)
         {
             int resultado = _pacientesBL.GuardarPaciente(paciente);
-            if (resultado > 0)
-                return RedirectToAction("Index");
-            return View(paciente);
+            // Puedes retornar un simple mensaje o el número de registros afectados
+            return Content(resultado.ToString());
+        }
+
+        [HttpGet]
+        public JsonResult filtrarPacientes(string busqueda)
+        {
+            List<PacientesCLS> lista = _pacientesBL.filtrarPacientes(busqueda);
+            return Json(lista);
         }
     }
 }

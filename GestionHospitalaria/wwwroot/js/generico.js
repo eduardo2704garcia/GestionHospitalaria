@@ -101,7 +101,7 @@ function generarTabla(res) {
 
     for (let i = 0; i < res.length; i++) {
         let obj = res[i];
-        console.log("Objeto:", obj);  // <-- Log para inspeccionar cada objeto
+
         contenido += "<tr>";
         for (let j = 0; j < propiedades.length; j++) {
             let propiedadActual = propiedades[j];

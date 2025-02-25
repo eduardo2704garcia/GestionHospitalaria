@@ -28,12 +28,11 @@ namespace CapaDatos
             }
             catch (Exception)
             {
-                // Puedes registrar el error si lo deseas
+
                 throw;
             }
         }
 
-        // Método para listar todos los pacientes
         public List<PacientesCLS> listarPacientes()
         {
             try
@@ -45,29 +44,23 @@ namespace CapaDatos
                 throw;
             }
         }
-
-        // Método para filtrar pacientes según algunos criterios (nombre, apellido y teléfono)
-        public List<PacientesCLS> filtrarPacientes(PacientesCLS obj)
+        public List<PacientesCLS> filtrarPacientes(string busqueda)
         {
-            try
+            var query = _context.Pacientes.AsQueryable();
+
+            if (!string.IsNullOrEmpty(busqueda))
             {
-                var query = _context.Pacientes.AsQueryable();
-
-                if (!string.IsNullOrEmpty(obj.nombre))
-                    query = query.Where(x => x.nombre.Contains(obj.nombre));
-
-                if (!string.IsNullOrEmpty(obj.apellido))
-                    query = query.Where(x => x.apellido.Contains(obj.apellido));
-
-                if (!string.IsNullOrEmpty(obj.telefono))
-                    query = query.Where(x => x.telefono.Contains(obj.telefono));
-
-                return query.ToList();
+                query = query.Where(x =>
+                    x.id.ToString().Contains(busqueda) ||
+                    x.nombre.Contains(busqueda) ||
+                    x.apellido.Contains(busqueda) ||
+                    x.telefono.Contains(busqueda) ||
+                    x.email.Contains(busqueda) ||
+                    x.direccion.Contains(busqueda)
+                );
             }
-            catch (Exception)
-            {
-                throw;
-            }
+
+            return query.ToList();
         }
     }
 }

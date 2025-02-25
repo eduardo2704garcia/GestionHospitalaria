@@ -17,3 +17,28 @@ async function listarPacientes() {
     pintar(objPacientes);
 }
 
+function filtrarPacientes() {
+    let busqueda = get("txtPaciente");
+    if (busqueda.trim() === "") {
+        listarPacientes();
+    } else {
+        objPacientes.url = "Pacientes/filtrarPacientes/?busqueda=" + encodeURIComponent(busqueda);
+        pintar(objPacientes);
+    }
+}
+
+function GuardarPaciente() {
+    let forma = document.getElementById("frmGuardarPaciente");
+    let frm = new FormData(forma);
+
+    fetchPost("Pacientes/GuardarPaciente", "text", frm, function (res) {
+        // Después de guardar, actualiza la tabla
+        listarPacientes();
+        // Limpia el formulario
+        LimpiarDatos("frmGuardarPaciente");
+        // Cierra el modal
+        var modalElement = document.getElementById('modalAgregarPaciente');
+        var modalInstance = bootstrap.Modal.getInstance(modalElement);
+        modalInstance.hide();
+    });
+}

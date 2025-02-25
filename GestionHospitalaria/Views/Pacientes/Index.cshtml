@@ -1,11 +1,62 @@
 ﻿@{
-	ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listado de Pacientes";
 }
-<div class="text-center">
-    <h1 class="display-4">Listado de Pacientes</h1>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="display-4">Listado de Pacientes</h1>
+        <!-- Botón Agregar -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarPaciente">
+            Agregar
+        </button>
+    </div>
+    <div id="divTable"></div>
 </div>
-<div id="divTable"></div>
 
-<!-- Incluye primero tu archivo genérico y luego el de Pacientes -->
+<!-- Modal Agregar Paciente -->
+<div class="modal fade" id="modalAgregarPaciente" tabindex="-1" aria-labelledby="modalAgregarPacienteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="frmGuardarPaciente">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAgregarPacienteLabel">Agregar Paciente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Campos para ingresar los datos -->
+                    <div class="mb-3">
+                        <label for="txtNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="txtNombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtApellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="txtApellido" name="apellido" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="txtFechaNacimiento" name="fechaNacimiento" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtTelefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="txtTelefono" name="telefono" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="txtEmail" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtDireccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="txtDireccion" name="direccion" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="GuardarPaciente()">Guardar Paciente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Incluir scripts: primero el generico, luego el de Pacientes -->
 <script src="~/js/generico.js"></script>
 <script src="~/js/Pacientes.js"></script>

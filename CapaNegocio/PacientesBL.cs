@@ -21,9 +21,9 @@ namespace CapaNegocio
             return _pacientesDAL.listarPacientes();
         }
 
-        public List<PacientesCLS> filtrarPacientes(PacientesCLS objPaciente)
+        public List<PacientesCLS> filtrarPacientes(string busqueda)
         {
-            return _pacientesDAL.filtrarPacientes(objPaciente);
+            return _pacientesDAL.filtrarPacientes(busqueda);
         }
     }
 }

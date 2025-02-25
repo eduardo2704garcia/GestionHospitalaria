@@ -8,6 +8,7 @@ namespace CapaEntidad
 {
     public class FacturacionCLS
     {
+        public int id { get; set; }
         public int PacienteId { get; set; }
         public decimal Monto { get; set; }
         public string MetodoPago { get; set; }

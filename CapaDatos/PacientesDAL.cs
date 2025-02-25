@@ -57,13 +57,13 @@ namespace CapaDatos
                             {
                                 PacientesCLS pacientes = new PacientesCLS
                                 {
-                                    id = dr.GetInt32(0),
-                                    Nombre = dr.GetString(1),
-                                    Apellido = dr.GetString(2),
+                                    id = dr.IsDBNull(0) ? 0 : dr.GetInt32(0),
+                                    Nombre = dr.IsDBNull(1) ? "" : dr.GetString(1),
+                                    Apellido = dr.IsDBNull(2) ? "" : dr.GetString(2),
                                     FechaNacimiento = DateOnly.FromDateTime(dr.GetDateTime(3)),
-                                    Telefono = dr.GetInt32(4),
-                                    Email = dr.GetString(5),
-                                    Direccion = dr.GetString(6)
+                                    Telefono = dr.IsDBNull(3) ? 0 : dr.GetInt32(4),
+                                    Email = dr.IsDBNull(4) ? "" : dr.GetString(5),
+                                    Direccion = dr.IsDBNull(5) ? "" : dr.GetString(6)
                                 };
 
                                 lista.Add(pacientes);

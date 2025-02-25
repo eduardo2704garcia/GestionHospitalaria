@@ -10,8 +10,8 @@ async function listarPacientes() {
         cabeceras: ["id Paciente", "Nombre", "FechaNacimiento", "Telefono"],
         propiedades: ["id", "Nombre", "FechaNacimiento", "Telefono"],
         divContenedorTabla: "divContenedorTabla",
-        editar: true,
-        eliminar: true
+        editar: false,
+        eliminar: false
     }
     pintar(objPacientes);
 }

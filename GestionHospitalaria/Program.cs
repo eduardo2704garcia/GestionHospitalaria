@@ -1,4 +1,10 @@
+using CapaDatos;
+
 var builder = WebApplication.CreateBuilder(args);
+
+services.AddDbContext<HospitalDBContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("HospitalDBConnection")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

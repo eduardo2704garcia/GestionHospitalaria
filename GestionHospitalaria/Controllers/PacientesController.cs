@@ -8,28 +8,38 @@ namespace CapaPresentacion.Controllers
 {
     public class PacientesController : Controller
     {
-        // GET: PacientesController
-        public ActionResult Index()
+        private readonly PacientesBL _pacientesBL;
+
+        // Inyección de dependencias a través del constructor
+        public PacientesController(PacientesBL pacientesBL)
         {
-            return View();
+            _pacientesBL = pacientesBL;
         }
 
-        public List<PacientesCLS> listarPacientes()
+        // Acción principal para mostrar la vista
+        public IActionResult Index()
         {
-                PacientesDAL obj = new PacientesDAL();
-                return obj.listarPacientes();
+            List<PacientesCLS> lista = _pacientesBL.listarPacientes();
+            return View(lista);
         }
 
-        public List<PacientesCLS> filtrarPacientes(PacientesCLS objPaciente)
+        // Acción para guardar un paciente (por ejemplo, a través de un formulario)
+        [HttpPost]
+        public IActionResult Guardar(PacientesCLS paciente)
         {
-                PacientesDAL obj = new PacientesDAL();
-                return obj.filtrarPacientes(objPaciente);
+            int resultado = _pacientesBL.GuardarPaciente(paciente);
+            if (resultado > 0)
+                return RedirectToAction("Index");
+
+            return View(paciente);
         }
 
-        public int GuardarPaciente(PacientesCLS oPacienteCLS)
+        // Ejemplo de acción que devuelve JSON (por ejemplo, para una llamada AJAX)
+        [HttpGet]
+        public JsonResult listarPacientesJson()
         {
-                PacientesBL obj = new PacientesBL();
-                return obj.GuardarPaciente(oPacienteCLS);
+            List<PacientesCLS> lista = _pacientesBL.listarPacientes();
+            return Json(lista);
         }
     }
 }

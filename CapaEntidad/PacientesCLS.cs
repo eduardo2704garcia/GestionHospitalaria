@@ -1,20 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
+    [Table("Pacientes")]
     public class PacientesCLS
     {
-        public int id {  get; set; }
-        public string Nombre {  get; set; }
-        public string Apellido { get; set; }
-        public DateOnly FechaNacimiento { get; set; }
-        public int Telefono { get; set; }
-        public string Email { get; set; }
-        public string Direccion {  get; set; }
+        [Key]
+        public int id { get; set; }
 
+        [Required]
+        [MaxLength(100)]
+        public string Nombre { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string Apellido { get; set; }
+
+        [Required]
+        public DateTime FechaNacimiento { get; set; }
+
+        [Required]
+        [MaxLength(16)]
+        public string Telefono { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string Email { get; set; }
+
+        [Required]
+        [MaxLength(255)]
+        public string Direccion { get; set; }
     }
 }

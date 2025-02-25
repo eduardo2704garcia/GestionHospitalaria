@@ -1,4 +1,5 @@
 ﻿using CapaEntidad;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,126 +7,67 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CapaDatos
 {
-    public class PacientesDAL: CadenaDAL
+    public class PacientesDAL
     {
+        private readonly HospitalDBContext _context;
+
+        // Inyección del DbContext mediante constructor
+        public PacientesDAL(HospitalDBContext context)
+        {
+            _context = context;
+        }
+
+        // Método para guardar un nuevo paciente
         public int GuardarPacientes(PacientesCLS oPacientesCLS)
         {
-            int rpta = 0;
-            using (SqlConnection cn = new SqlConnection(cadena))
+            try
             {
-                try
-                {
-                    cn.Open();
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Paciente (Nombre, Apellido, FechaNacimiento, Telefono, Email, Direccion) VALUES (@Nombre, @Apellido, @FechaNacimiento, @Telefono, @Email, @Direccion)", cn))
-                    {
-                          cmd.CommandType = System.Data.CommandType.Text;
-                          cmd.Parameters.AddWithValue("@Nombre", oPacientesCLS.Nombre);
-                          cmd.Parameters.AddWithValue("@Apellido", oPacientesCLS.Apellido);
-                          cmd.Parameters.AddWithValue("@FechaNacimiento", oPacientesCLS.FechaNacimiento.ToDateTime(new TimeOnly(0, 0))); // Convert DateOnly to DateTime
-                          cmd.Parameters.AddWithValue("@Telefono", oPacientesCLS.Telefono);
-                          cmd.Parameters.AddWithValue("@Email", oPacientesCLS.Email);
-                          cmd.Parameters.AddWithValue("@Direccion", oPacientesCLS.Direccion);
-
-                        rpta = cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
+                _context.Pacientes.Add(oPacientesCLS);
+                // SaveChanges devuelve el número de registros afectados
+                return _context.SaveChanges();
             }
-            return rpta;
+            catch (Exception)
+            {
+                // Puedes registrar el error si lo deseas
+                throw;
+            }
         }
 
+        // Método para listar todos los pacientes
         public List<PacientesCLS> listarPacientes()
         {
-            List<PacientesCLS> lista = new List<PacientesCLS>();
-
-            using (SqlConnection cn = new SqlConnection(cadena))
+            try
             {
-                try
-                {
-                    cn.Open();
-                    using (SqlCommand cmd = new SqlCommand("uspListarPacientes", cn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                PacientesCLS pacientes = new PacientesCLS
-                                {
-                                    id = dr.IsDBNull(0) ? 0 : dr.GetInt32(0),
-                                    Nombre = dr.IsDBNull(1) ? "" : dr.GetString(1),
-                                    Apellido = dr.IsDBNull(2) ? "" : dr.GetString(2),
-                                    FechaNacimiento = DateOnly.FromDateTime(dr.GetDateTime(3)),
-                                    Telefono = dr.IsDBNull(3) ? 0 : dr.GetInt32(4),
-                                    Email = dr.IsDBNull(4) ? "" : dr.GetString(5),
-                                    Direccion = dr.IsDBNull(5) ? "" : dr.GetString(6)
-                                };
-
-                                lista.Add(pacientes);
-                            }
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    lista = null;
-                    throw;
-                }
+                return _context.Pacientes.ToList();
             }
-            return lista;
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
+        // Método para filtrar pacientes según algunos criterios (nombre, apellido y teléfono)
         public List<PacientesCLS> filtrarPacientes(PacientesCLS obj)
         {
-            List<PacientesCLS> lista = new List<PacientesCLS>();
-
-            using (SqlConnection cn = new SqlConnection(cadena))
+            try
             {
-                try
-                {
-                    cn.Open();
-                    using (SqlCommand cmd = new SqlCommand("uspFiltrarPacientes", cn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                var query = _context.Pacientes.AsQueryable();
 
-                        // Añadir parámetro de filtro, por ejemplo, nombre o apellido
-                        cmd.Parameters.AddWithValue("@Nombre", (object)obj.Nombre ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@Apellido", (object)obj.Apellido ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@Telefono", (object)obj.Telefono ?? DBNull.Value);
+                if (!string.IsNullOrEmpty(obj.Nombre))
+                    query = query.Where(x => x.Nombre.Contains(obj.Nombre));
 
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                PacientesCLS pacientes = new PacientesCLS
-                                {
-                                    id = dr.GetInt32(0),
-                                    Nombre = dr.GetString(1),
-                                    Apellido = dr.GetString(2),
-                                    FechaNacimiento = DateOnly.FromDateTime(dr.GetDateTime(3)),
-                                    Telefono = dr.GetInt32(4),
-                                    Email = dr.GetString(5),
-                                    Direccion = dr.GetString(6)
-                                };
+                if (!string.IsNullOrEmpty(obj.Apellido))
+                    query = query.Where(x => x.Apellido.Contains(obj.Apellido));
 
-                                lista.Add(pacientes);
-                            }
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    lista = null;
-                    throw;
-                }
+                if (!string.IsNullOrEmpty(obj.Telefono))
+                    query = query.Where(x => x.Telefono.Contains(obj.Telefono));
+
+                return query.ToList();
             }
-            return lista;
+            catch (Exception)
+            {
+                throw;
+            }
         }
-
     }
 }

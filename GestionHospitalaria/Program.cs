@@ -1,10 +1,17 @@
 using CapaDatos;
+using CapaNegocio;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-services.AddDbContext<HospitalDBContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("HospitalDBConnection")));
+builder.Services.AddDbContext<HospitalDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HospitalDB")));
 
+
+builder.Services.AddScoped<PacientesDAL>();
+builder.Services.AddScoped<PacientesBL>();
+
+builder.Services.AddControllersWithViews();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

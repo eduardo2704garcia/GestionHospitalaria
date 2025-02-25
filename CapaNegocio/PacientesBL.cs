@@ -4,23 +4,27 @@ namespace CapaNegocio
 {
     public class PacientesBL
     {
+        private readonly PacientesDAL _pacientesDAL;
+
+        // Inyección de dependencias a través del constructor
+        public PacientesBL(PacientesDAL pacientesDAL)
+        {
+            _pacientesDAL = pacientesDAL;
+        }
+
         public int GuardarPaciente(PacientesCLS oPacienteCLS)
         {
-            PacientesDAL obj = new PacientesDAL();
-            return obj.GuardarPacientes(oPacienteCLS);
+            return _pacientesDAL.GuardarPacientes(oPacienteCLS);
         }
 
         public List<PacientesCLS> listarPacientes()
         {
-            PacientesDAL obj = new PacientesDAL();
-            return obj.listarPacientes();
+            return _pacientesDAL.listarPacientes();
         }
 
         public List<PacientesCLS> filtrarPacientes(PacientesCLS objPaciente)
         {
-            PacientesDAL obj = new PacientesDAL();
-            return obj.filtrarPacientes(objPaciente);
+            return _pacientesDAL.filtrarPacientes(objPaciente);
         }
-
     }
 }

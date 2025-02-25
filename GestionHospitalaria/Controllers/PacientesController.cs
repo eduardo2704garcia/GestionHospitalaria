@@ -13,25 +13,23 @@ namespace CapaPresentacion.Controllers
         {
             return View();
         }
-        public class PacienteController
+
+        public List<PacientesCLS> listarPacientes()
         {
-            public List<PacientesCLS> listarPacientes()
-            {
                 PacientesDAL obj = new PacientesDAL();
                 return obj.listarPacientes();
-            }
+        }
 
-            public List<PacientesCLS> filtrarPacientes(PacientesCLS objPaciente)
-            {
+        public List<PacientesCLS> filtrarPacientes(PacientesCLS objPaciente)
+        {
                 PacientesDAL obj = new PacientesDAL();
                 return obj.filtrarPacientes(objPaciente);
-            }
+        }
 
-            public int GuardarPaciente(PacientesCLS oPacienteCLS)
-            {
+        public int GuardarPaciente(PacientesCLS oPacienteCLS)
+        {
                 PacientesBL obj = new PacientesBL();
                 return obj.GuardarPaciente(oPacienteCLS);
-            }
         }
     }
 }

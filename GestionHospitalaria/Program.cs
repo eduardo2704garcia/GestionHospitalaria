@@ -4,25 +4,22 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Registrar el DbContext usando la cadena de conexión correcta
 builder.Services.AddDbContext<HospitalDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("HospitalDB")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HospitalDBConnection")));
 
-
+// Registrar las dependencias de tus capas
 builder.Services.AddScoped<PacientesDAL>();
 builder.Services.AddScoped<PacientesBL>();
 
 builder.Services.AddControllersWithViews();
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -38,3 +35,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

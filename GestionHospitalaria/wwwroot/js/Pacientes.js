@@ -6,13 +6,14 @@ let objPacientes;
 
 async function listarPacientes() {
     objPacientes = {
-        url: "Pacientes/listarPacientes", // Asegúrate de que esta URL devuelva un JSON con la lista de pacientes.
+        url: "Pacientes/listarPacientes", // Este endpoint devuelve el JSON
         cabeceras: ["ID Paciente", "Nombre", "Fecha Nacimiento", "Teléfono"],
-        propiedades: ["id", "Nombre", "FechaNacimiento", "Telefono"],
+        propiedades: ["id", "nombre", "fechaNacimiento", "telefono"],
         divContenedorTabla: "divContenedorTabla",
-        editar: false,  // Si no deseas botones de editar, pon false.
-        eliminar: false // Si no deseas botones de eliminar, pon false.
-        // propiedadID: "id" // Si necesitas operaciones de editar/eliminar, define la propiedad que representa el ID.
+        editar: true,
+        eliminar: true
+        // propiedadID: "id"  // Úsalo si implementas editar/eliminar
     };
     pintar(objPacientes);
 }
+

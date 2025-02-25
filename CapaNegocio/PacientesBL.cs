@@ -6,7 +6,6 @@ namespace CapaNegocio
     {
         private readonly PacientesDAL _pacientesDAL;
 
-        // Inyección de dependencias a través del constructor
         public PacientesBL(PacientesDAL pacientesDAL)
         {
             _pacientesDAL = pacientesDAL;

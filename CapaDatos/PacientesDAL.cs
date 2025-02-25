@@ -53,14 +53,14 @@ namespace CapaDatos
             {
                 var query = _context.Pacientes.AsQueryable();
 
-                if (!string.IsNullOrEmpty(obj.Nombre))
-                    query = query.Where(x => x.Nombre.Contains(obj.Nombre));
+                if (!string.IsNullOrEmpty(obj.nombre))
+                    query = query.Where(x => x.nombre.Contains(obj.nombre));
 
-                if (!string.IsNullOrEmpty(obj.Apellido))
-                    query = query.Where(x => x.Apellido.Contains(obj.Apellido));
+                if (!string.IsNullOrEmpty(obj.apellido))
+                    query = query.Where(x => x.apellido.Contains(obj.apellido));
 
-                if (!string.IsNullOrEmpty(obj.Telefono))
-                    query = query.Where(x => x.Telefono.Contains(obj.Telefono));
+                if (!string.IsNullOrEmpty(obj.telefono))
+                    query = query.Where(x => x.telefono.Contains(obj.telefono));
 
                 return query.ToList();
             }

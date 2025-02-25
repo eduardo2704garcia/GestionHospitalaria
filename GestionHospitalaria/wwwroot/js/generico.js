@@ -59,15 +59,12 @@ let objConfiguracionGlobal;
 // Configuración esperada: { url: "", cabeceras: [], propiedades: [], ... }
 function pintar(objConfiguracion) {
     objConfiguracionGlobal = objConfiguracion;
-
     if (objConfiguracionGlobal.divContenedorTabla === undefined) {
         objConfiguracionGlobal.divContenedorTabla = "divContenedorTabla";
     }
-
     if (objConfiguracionGlobal.editar === undefined) {
         objConfiguracionGlobal.editar = false;
     }
-
     if (objConfiguracionGlobal.eliminar === undefined) {
         objConfiguracionGlobal.eliminar = false;
     }
@@ -75,13 +72,14 @@ function pintar(objConfiguracion) {
         objConfiguracionGlobal.propiedadID = "";
     }
     fetchGet(objConfiguracion.url, "json", function (res) {
-        let contenido = "";
-        contenido = "<div id='" + objConfiguracionGlobal.divContenedorTabla + "'>";
+        console.log("Respuesta JSON:", res); // <-- Agrega este log para ver la estructura
+        let contenido = "<div id='" + objConfiguracionGlobal.divContenedorTabla + "'>";
         contenido += generarTabla(res);
         contenido += "</div>";
         document.getElementById("divTable").innerHTML = contenido;
     });
 }
+
 
 function generarTabla(res) {
     let contenido = "";
@@ -103,6 +101,7 @@ function generarTabla(res) {
 
     for (let i = 0; i < res.length; i++) {
         let obj = res[i];
+        console.log("Objeto:", obj);  // <-- Log para inspeccionar cada objeto
         contenido += "<tr>";
         for (let j = 0; j < propiedades.length; j++) {
             let propiedadActual = propiedades[j];

@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using CapaEntidad;
 
 namespace CapaDatos
 {
@@ -16,19 +17,19 @@ namespace CapaDatos
         }
 
         // DbSets que representan las tablas de la base de datos
-        public DbSet<Especialidad> Especialidades { get; set; }
-        public DbSet<Medico> Medicos { get; set; }
-        public DbSet<Paciente> Pacientes { get; set; }
-        public DbSet<Cita> Citas { get; set; }
-        public DbSet<Tratamiento> Tratamientos { get; set; }
-        public DbSet<Facturacion> Facturaciones { get; set; }
+        public DbSet<EspecialidadesCLS> Especialidades { get; set; }
+        public DbSet<MedicosCLS> Medicos { get; set; }
+        public DbSet<PacientesCLS> Pacientes { get; set; }
+        public DbSet<CitasCLS> Citas { get; set; }
+        public DbSet<TratamientosCLS> Tratamientos { get; set; }
+        public DbSet<FacturacionCLS> Facturaciones { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             // Configuración de la entidad Especialidad
-            modelBuilder.Entity<Especialidad>(entity =>
+            modelBuilder.Entity<EspecialidadesCLS>(entity =>
             {
                 entity.ToTable("Especialidades");
                 entity.HasKey(e => e.Id);
@@ -38,10 +39,10 @@ namespace CapaDatos
             });
 
             // Configuración de la entidad Medico
-            modelBuilder.Entity<Medico>(entity =>
+            modelBuilder.Entity<MedicosCLS>(entity =>
             {
                 entity.ToTable("Medicos");
-                entity.HasKey(e => e.Id);
+                entity.HasKey(e => e.id);
                 entity.Property(e => e.Nombre)
                       .HasMaxLength(100)
                       .IsRequired();
@@ -59,17 +60,17 @@ namespace CapaDatos
                 entity.HasIndex(e => e.Email).IsUnique();
 
                 // Relación con Especialidad
-                entity.HasOne(e => e.Especialidad)
+                entity.HasOne(e => e.Especialidades)
                       .WithMany(es => es.Medicos)
                       .HasForeignKey(e => e.EspecialidadId)
                       .OnDelete(DeleteBehavior.Restrict);
             });
 
             // Configuración de la entidad Paciente
-            modelBuilder.Entity<Paciente>(entity =>
+            modelBuilder.Entity<PacientesCLS>(entity =>
             {
                 entity.ToTable("Pacientes");
-                entity.HasKey(e => e.Id);
+                entity.HasKey(e => e.id);
                 entity.Property(e => e.Nombre)
                       .HasMaxLength(100)
                       .IsRequired();
@@ -93,7 +94,7 @@ namespace CapaDatos
             });
 
             // Configuración de la entidad Cita
-            modelBuilder.Entity<Cita>(entity =>
+            modelBuilder.Entity<CitasCLS>(entity =>
             {
                 entity.ToTable("Citas");
                 entity.HasKey(e => e.Id);
@@ -117,7 +118,7 @@ namespace CapaDatos
             });
 
             // Configuración de la entidad Tratamiento
-            modelBuilder.Entity<Tratamiento>(entity =>
+            modelBuilder.Entity<TratamientosCLS>(entity =>
             {
                 entity.ToTable("Tratamientos");
                 entity.HasKey(e => e.Id);
@@ -138,10 +139,10 @@ namespace CapaDatos
             });
 
             // Configuración de la entidad Facturacion
-            modelBuilder.Entity<Facturacion>(entity =>
+            modelBuilder.Entity<FacturacionCLS>(entity =>
             {
                 entity.ToTable("Facturacion");
-                entity.HasKey(e => e.Id);
+                entity.HasKey(e => e.id);
                 entity.Property(e => e.Monto)
                       .HasColumnType("decimal(10,2)")
                       .IsRequired();

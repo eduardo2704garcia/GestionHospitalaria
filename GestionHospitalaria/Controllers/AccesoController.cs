@@ -97,7 +97,7 @@ namespace CapaPresentacion.Controllers
             if (oUsuario.IdUsuario != 0)
             {
 
-                HttpContext.Session.SetString("usuario", oUsuario.Correo);
+                HttpContext.Session.SetString("usuario", oUsuario.IdUsuario.ToString());
                 return RedirectToAction("Index", "Home");
             }
             else

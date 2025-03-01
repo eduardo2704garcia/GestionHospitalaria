@@ -16,7 +16,7 @@
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <input class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
         </form>
@@ -40,61 +40,87 @@
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">About Us</div>
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Home
                         </a>
-                        <div class="sb-sidenav-menu-heading">Interface</div>
+
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
                             Pacientes
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" asp-area="" asp-controller="Pacientes" asp-action="Index">Datos</a>
-                                <a class="nav-link" asp-area="" asp-controller="Tratamientos" asp-action="Index">Tratamientos</a>
+                                <a class="nav-link" asp-area="" asp-controller="Pacientes" asp-action="Index">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                                    Datos
+                                </a>
+                                <a class="nav-link" asp-area="" asp-controller="Tratamientos" asp-action="Index">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-pills"></i></div>
+                                    Tratamientos
+                                </a>
                             </nav>
                         </div>
+
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Personal
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                                     Identificación
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" asp-area="" asp-controller="Acceso" asp-action="Login">Inicio de Sesión</a>
-                                        <a class="nav-link" asp-area="" asp-controller="Acceso" asp-action="Registrar">Registro</a>
-                                        <a class="nav-link" href="password.html">Recuperar Contraseña</a>
+                                        <a class="nav-link" asp-area="" asp-controller="Acceso" asp-action="Login">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+                                            Inicio de Sesión
+                                        </a>
+                                        <a class="nav-link" asp-area="" asp-controller="Acceso" asp-action="Registrar">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                                            Registro
+                                        </a>
+                                        <a class="nav-link" href="password.html">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
+                                            Recuperar Contraseña
+                                        </a>
                                     </nav>
                                 </div>
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
                                     Médicos
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" asp-area="" asp-controller="Medicos" asp-action="Index">Datos</a>
-                                        <a class="nav-link" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a>
-                                        <a class="nav-link" asp-area="" asp-controller="Tratamientos" asp-action="Index">Tratamientos</a>
+                                        <a class="nav-link" asp-area="" asp-controller="Medicos" asp-action="Index">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                            Datos
+                                        </a>
+                                        <a class="nav-link" asp-area="" asp-controller="Especialidades" asp-action="Index">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-stethoscope"></i></div>
+                                            Especialidades
+                                        </a>
+                                        <a class="nav-link" asp-area="" asp-controller="Tratamientos" asp-action="Index">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                            Tratamientos
+                                        </a>
                                     </nav>
                                 </div>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">Addons</div>
-                        
+
                         <a class="nav-link" asp-area="" asp-controller="Citas" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                             Citas
                         </a>
-             
+
                         <a class="nav-link" asp-area="" asp-controller="Facturacion" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-invoice-dollar"></i></div>
                             Facturación
                         </a>
                     </div>

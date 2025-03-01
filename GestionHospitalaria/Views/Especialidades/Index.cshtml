@@ -1,10 +1,48 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="display-4">Listado de Especialidades</h1>
+        <!-- Botón Agregar -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarEspecialidad">
+            Agregar
+        </button>
+    </div>
+    <div id="divTable">
+        <!-- Aquí se cargará la tabla dinámicamente -->
+    </div>
 </div>
+
+<!-- Modal Agregar Especialidad -->
+<div class="modal fade" id="modalAgregarEspecialidad" tabindex="-1" aria-labelledby="modalAgregarEspecialidadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="frmGuardarEspecialidad">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAgregarEspecialidadLabel">Agregar Especialidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Campos para ingresar los datos -->
+                    <div class="mb-3">
+                        <label for="txtIdEspecialidad" class="form-label">ID de la Especialidad</label>
+                        <input type="text" class="form-control" id="Id" name="Id" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtNombreEspecialidad" class="form-label">Nombre de la Especialidad</label>
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="GuardarEspecialidad()">Guardar Especialidad</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Incluir scripts -->
+<script src="~/js/generico.js"></script>
+<script src="~/js/Especialidades.js"></script>

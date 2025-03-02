@@ -20,14 +20,12 @@ namespace CapaPresentacion.Controllers
             return View();
         }
 
-        [HttpGet]
         public JsonResult listarPacientes()
         {
             List<PacientesCLS> lista = _pacientesBL.listarPacientes();
             return Json(lista);
         }
 
-        [HttpPost]
         public IActionResult GuardarPaciente(PacientesCLS paciente)
         {
             int resultado = _pacientesBL.GuardarPaciente(paciente);
@@ -35,11 +33,23 @@ namespace CapaPresentacion.Controllers
             return Content(resultado.ToString());
         }
 
-        [HttpGet]
         public JsonResult filtrarPacientes(string busqueda)
         {
             List<PacientesCLS> lista = _pacientesBL.filtrarPacientes(busqueda);
             return Json(lista);
         }
+
+        public JsonResult RecuperarPaciente(int id)
+        {
+            PacientesCLS paciente = _pacientesBL.RecuperarPaciente(id);
+            return Json(paciente);
+        }
+
+        public IActionResult EliminarPaciente(int id)
+        {
+            int resultado = _pacientesBL.EliminarPaciente(id);
+            return Content(resultado.ToString());
+        }
+
     }
 }

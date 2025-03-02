@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using CapaNegocio;
-using CapaEntidad;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using CapaDatos;
-using System.Collections.Generic;
+using CapaEntidad;
+using CapaNegocio;
+
 
 namespace CapaPresentacion.Controllers
 {
@@ -10,7 +11,6 @@ namespace CapaPresentacion.Controllers
     {
         private readonly EspecialidadesBL _especialidadesBL;
 
-        // Constructor con inyección de dependencias
         public EspecialidadesController(EspecialidadesBL especialidadesBL)
         {
             _especialidadesBL = especialidadesBL;
@@ -40,6 +40,17 @@ namespace CapaPresentacion.Controllers
         {
             List<EspecialidadesCLS> lista = _especialidadesBL.filtrarEspecialidades(busqueda);
             return Json(lista);
+        }
+        public JsonResult RecuperarEspecialidad(int id)
+        {
+            EspecialidadesCLS especialidad = _especialidadesBL.RecuperarEspecialidad(id);
+            return Json(especialidad);
+        }
+
+        public IActionResult EliminarEspecialidad(int id)
+        {
+            int resultado = _especialidadesBL.EliminarEspecialidad(id);
+            return Content(resultado.ToString());
         }
     }
 }

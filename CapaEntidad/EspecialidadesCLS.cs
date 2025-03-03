@@ -11,7 +11,7 @@ namespace CapaEntidad
 
     public class EspecialidadesCLS
     {
-
+        [Key]
         public int id { get; set; }
         public string nombre { get; set; }
 

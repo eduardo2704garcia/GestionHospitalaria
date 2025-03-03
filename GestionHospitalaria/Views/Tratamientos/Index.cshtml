@@ -1,18 +1,24 @@
 ﻿@{
 	ViewData["Title"] = "Tratamientos";
 }
+<head>
+    <link rel="stylesheet" href="~/css/pacientes.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
 <h1 class="display-6 text-center fw-bold"><i class="fa fa-pills"></i>  Tratamientos</h1>
-
+<br />
 <div class="container-fluid px-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h2 text-coffee fw-bold mb-0">
-            <i class="bi bi-capsule me-2"></i>Tratamientos
-        </h1>
-        <button type="button" class="btn btn-coffee btn-lg" data-bs-toggle="modal" onclick="MostrarModal()">
-            <i class="bi bi-plus-circle-fill me-2"></i>Nuevo Tratamiento
-        </button>
+    <div class="border border-secondary rounded p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2 text-coffee fw-bold mb-0">
+                <i class="bi bi-table"></i> Registro de Tratamientos
+            </h1>
+            <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" onclick="MostrarModal()">
+                <i class="bi bi-plus-circle"></i> Nuevo Tratamiento
+            </button>
+        </div>
     </div>
-
+    <br />
     <div class="modal fade" id="modalTratamiento" tabindex="-1" aria-labelledby="modalTratamientoLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg">
@@ -83,9 +89,9 @@
     </div>
 
     <div class="card border-0 shadow">
-        <div class="card-header bg-coffee text-white py-3">
+        <div class="card-header text-dark py-3">
             <h5 class="card-title mb-0">
-                <i class="bi bi-list-task me-2"></i>Registro de Tratamiento
+                Listado de Tratamientos
             </h5>
         </div>
         <div class="card-body p-0 bg-light-coffee">

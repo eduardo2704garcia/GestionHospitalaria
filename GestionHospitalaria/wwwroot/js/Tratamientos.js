@@ -32,6 +32,7 @@ function listarPacientes() {
 
 function MostrarModal() {
     LimpiarDatos("frmTratamiento");
+    document.activeElement.blur();
     var myModal = new bootstrap.Modal(document.getElementById("modalTratamiento"));
     myModal.show();
     ListarTratamientos();
@@ -50,6 +51,7 @@ function GuardarTratamiento() {
         LimpiarDatos("frmTratamiento");
         Exito("Registro Guardado Con Exito");
         ListarTratamientos();
+        document.activeElement.blur();
         var myModal = bootstrap.Modal.getInstance(document.getElementById('modalTratamiento'));
         myModal.hide();
     });
@@ -73,7 +75,7 @@ function Editar(id) {
         setN("fecha", fechaStr);
 
         setN("costo", data.costo);
-
+        document.activeElement.blur();
         // Abre el modal para editar
         var myModal = new bootstrap.Modal(document.getElementById('modalTratamiento'));
         myModal.show();

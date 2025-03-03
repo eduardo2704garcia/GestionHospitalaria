@@ -21,26 +21,18 @@ namespace CapaPresentacion.Controllers
             return View();
         }
 
-        [HttpGet]
         public JsonResult listarEspecialidades()
         {
             List<EspecialidadesCLS> lista = _especialidadesBL.listarEspecialidades();
             return Json(lista);
         }
 
-        [HttpPost]
         public IActionResult GuardarEspecialidades([FromBody] EspecialidadesCLS especialidad)
         {
             int resultado = _especialidadesBL.GuardarEspecialidades(especialidad);
             return Content(resultado.ToString());
         }
 
-        [HttpGet]
-        public JsonResult filtrarEspecialidades(string busqueda)
-        {
-            List<EspecialidadesCLS> lista = _especialidadesBL.filtrarEspecialidades(busqueda);
-            return Json(lista);
-        }
         public JsonResult RecuperarEspecialidad(int id)
         {
             EspecialidadesCLS especialidad = _especialidadesBL.RecuperarEspecialidad(id);

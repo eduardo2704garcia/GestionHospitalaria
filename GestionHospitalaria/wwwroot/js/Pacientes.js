@@ -24,15 +24,12 @@ function GuardarPaciente() {
         forma.classList.add("was-validated");
         return;
     }
-    fetchPost("Tratamientos/GuardarTratamiento", "text", frm, function (res) {
-        LimpiarDatos("frmTratamiento");
-        Exito("Registro Guardado Con Éxito");
-        ListarTratamientos();
+    fetchPost("Pacientes/GuardarPaciente", "text", frm, function (res) {
+        LimpiarDatos("frmPaciente");
+        Exito("Registro Guardado con Éxito");
+        listarPacientes();
 
-        // Quita el foco del elemento activo antes de ocultar el modal
-        document.activeElement.blur();
-
-        var myModal = bootstrap.Modal.getInstance(document.getElementById('modalTratamiento'));
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('modalPaciente'));
         myModal.hide();
     });
 
@@ -51,7 +48,14 @@ function Editar(id) {
         setN("id", data.id);
         setN("nombre", data.nombre);
         setN("apellido", data.apellido);
-        setN("fechaNacimiento", data.fechaNacimiento);
+
+        // Convertir la fecha al formato "yyyy-MM-dd"
+        let fechaStr = "";
+        if (data.fechaNacimiento) {
+            let dt = new Date(data.fechaNacimiento);
+            fechaStr = dt.toISOString().split("T")[0];
+        }
+        setN("fechaNacimiento", fechaStr);
         setN("telefono", data.telefono);
         setN("email", data.email);
         setN("direccion", data.direccion);

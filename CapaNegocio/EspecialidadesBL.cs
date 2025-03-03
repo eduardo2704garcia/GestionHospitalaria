@@ -22,11 +22,6 @@ namespace CapaNegocio
         {
             return _especialidadesDAL.listarEspecialidades();
         }
-
-        public List<EspecialidadesCLS> filtrarEspecialidades(string busqueda)
-        {
-            return _especialidadesDAL.filtrarEspecialidades(busqueda);
-        }
         public EspecialidadesCLS RecuperarEspecialidad(int idEspecialidad)
         {
             return _especialidadesDAL.RecuperarEspecialidad(idEspecialidad);

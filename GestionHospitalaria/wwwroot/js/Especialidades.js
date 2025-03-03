@@ -8,7 +8,7 @@ async function listarEspecialidades() {
     objEspecialidades = {
         url: "Especialidades/listarEspecialidades", 
         cabeceras: ["ID Especialidad", "Nombre"], 
-        propiedades: ["Id", "Nombre"], 
+        propiedades: ["id", "nombre"], 
         divContenedorTabla: "divContenedorTabla", 
         editar: true, 
         eliminar: true,
@@ -17,15 +17,6 @@ async function listarEspecialidades() {
     pintar(objEspecialidades); 
 }
 
-function filtrarEspecialidades() {
-    let busqueda = get("txtEspecialidad");
-    if (busqueda.trim() === "") {
-        listarEspecialidades();
-    } else {
-        objEspecialidades.url = "Especialidades/filtrarEspecialidades/?busqueda=" + encodeURIComponent(busqueda);
-        pintar(objEspecialidades); 
-    }
-}
 
 function GuardarEspecialidad() {
     let forma = document.getElementById("frmEspecialidad");
@@ -46,6 +37,7 @@ function GuardarEspecialidad() {
 
 function MostrarModal() {
     LimpiarDatos("frmEspecialidad");
+    document.activeElement.blur();
     var myModal = new bootstrap.Modal(document.getElementById('modalEspecialidad'));
     myModal.show();
 }
@@ -54,9 +46,9 @@ function Editar(id) {
     fetchGet("Especialidades/RecuperarEspecialidad/?id=" + id, "json", function (data) {
         // Usa los IDs exactos de tu modal
         setN("id", data.id);
-        setN("Nombre", data.Nombre);
+        setN("nombre", data.nombre);
         
-
+        document.activeElement.blur();
         var myModal = new bootstrap.Modal(document.getElementById('modalEspecialidad'));
         myModal.show();
     });
@@ -72,7 +64,7 @@ function Eliminar(id) {
         Confirmar(undefined, "¿Desea eliminar la especialidad " + data.nombre + " ?", function () {
             fetchGet("Especialidades/EliminarEspecialidad/?id=" + id, "text", function (r) {
                 Exito("Registro Eliminado con Éxito");
-                listarPacientes();
+                listarEspecialidades();
             });
         });
     });

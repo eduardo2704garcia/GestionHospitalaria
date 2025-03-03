@@ -40,7 +40,7 @@ namespace CapaDatos
                     var especialidadDB = _context.Especialidades.FirstOrDefault(p => p.id == oEspecialidadesCLS.id);
                     if (especialidadDB != null)
                     {
-                        especialidadDB.Nombre = oEspecialidadesCLS.Nombre;
+                        especialidadDB.nombre = oEspecialidadesCLS.nombre;
                     }
                 }
 
@@ -50,24 +50,6 @@ namespace CapaDatos
             {
                 throw;
             }
-        }
-
-
-
-        // Método para filtrar especialidades por nombre o ID
-        public List<EspecialidadesCLS> filtrarEspecialidades(string busqueda)
-        {
-            var query = _context.Especialidades.AsQueryable();
-
-            if (!string.IsNullOrEmpty(busqueda))
-            {
-                query = query.Where(x =>
-                    x.id.ToString().Contains(busqueda) ||
-                    x.Nombre.Contains(busqueda)
-                );
-            }
-
-            return query.ToList();
         }
 
         public EspecialidadesCLS RecuperarEspecialidad(int idEspecialidad)

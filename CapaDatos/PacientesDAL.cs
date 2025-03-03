@@ -65,7 +65,6 @@ namespace CapaDatos
                 }
                 else
                 {
-                    // Actualización: se recupera el paciente existente y se actualizan sus propiedades.
                     var pacienteDB = _context.Pacientes.FirstOrDefault(p => p.id == oPacientesCLS.id);
                     if (pacienteDB != null)
                     {
@@ -75,7 +74,6 @@ namespace CapaDatos
                         pacienteDB.telefono = oPacientesCLS.telefono;
                         pacienteDB.email = oPacientesCLS.email;
                         pacienteDB.direccion = oPacientesCLS.direccion;
-                        // Los cambios son rastreados automáticamente por EF.
                     }
                 }
 

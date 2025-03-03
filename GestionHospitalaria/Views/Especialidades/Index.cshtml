@@ -1,48 +1,70 @@
 ﻿@{
     ViewData["Title"] = "Index";
 }
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="display-4">Listado de Especialidades</h1>
-        <!-- Botón Agregar -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarEspecialidad">
-            Agregar
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 text-coffee fw-bold mb-0">
+            <i class="fa fa-flask me-2"></i>Especialidades
+        </h1>
+        <button type="button" class="btn btn-coffee btn-lg" data-bs-toggle="modal" onclick="MostrarModal()">
+            <i class="bi bi-cup-hot-fill me-2"></i>Nueva Especialidad
         </button>
     </div>
-    <div id="divTable">
-        <!-- Aquí se cargará la tabla dinámicamente -->
-    </div>
-</div>
-
-<!-- Modal Agregar Especialidad -->
-<div class="modal fade" id="modalAgregarEspecialidad" tabindex="-1" aria-labelledby="modalAgregarEspecialidadLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="frmGuardarEspecialidad">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalAgregarEspecialidadLabel">Agregar Especialidad</h5>
+    <div class="modal fade" id="modalEspecialidad" tabindex="-1" aria-labelledby="modalEspecialidadLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fs-5 text-coffee">
+                        <i class="bi bi-building me-2"></i>Gestionar Especialidad
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-                <div class="modal-body">
-                    <!-- Campos para ingresar los datos -->
-                    <div class="mb-3">
-                        <label for="txtIdEspecialidad" class="form-label">ID de la Especialidad</label>
-                        <input type="text" class="form-control" id="Id" name="Id" readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtNombreEspecialidad" class="form-label">Nombre de la Especialidad</label>
-                        <input type="text" class="form-control" id="Nombre" name="Nombre" required>
-                    </div>
+
+                <div class="modal-body p-4">
+                    <form id="frmEspecialidad" method="post" class="row g-4">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-coffee" id="id"
+                                       name="id" readonly>
+                                <label for="id" class="text-muted">ID Especialidad</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-coffee" id="nombre"
+                                       name="nombre" required>
+                                <label for="Nombre" class="text-muted">Nombre</label>
+                            </div>
+                        </div>
+
+                        
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="GuardarEspecialidad()">Guardar Especialidad</button>
+
+                <div class="modal-footer border-top">
+                    <button type="button" class="btn btn-outline-coffee" onclick="LimpiarEspecialidad()">
+                        <i class="bi bi-eraser me-2"></i>Limpiar
+                    </button>
+                    <button type="button" class="btn btn-coffee" onclick="GuardarEspecialidad()">
+                        <i class="bi bi-save me-2"></i>Guardar
+                    </button>
                 </div>
-            </form>
+            </div>
+        </div>
+    </div>
+    <div class="card border-0 shadow">
+        <div class="card-header bg-coffee text-white py-3">
+            <h5 class="card-title mb-0">
+                <i class="bi bi-list-check me-2"></i>Registro de Especialidad
+            </h5>
+        </div>
+        <div class="card-body p-0 bg-light-coffee">
+            <div id="divContenedorTabla" class="rounded-3"></div>
         </div>
     </div>
 </div>
-
 <!-- Incluir scripts -->
 <script src="~/js/generico.js"></script>
 <script src="~/js/Especialidades.js"></script>

@@ -11,6 +11,10 @@ builder.Services.AddDbContext<HospitalDBContext>(options =>
 // Registrar las dependencias de tus capas
 builder.Services.AddScoped<PacientesDAL>();
 builder.Services.AddScoped<PacientesBL>();
+builder.Services.AddScoped<TratamientosDAL>();
+builder.Services.AddScoped<TratamientosBL>();
+builder.Services.AddScoped<EspecialidadesDAL>();
+builder.Services.AddScoped<EspecialidadesBL>();
 
 builder.Services.AddControllersWithViews();
 

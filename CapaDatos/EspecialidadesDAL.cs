@@ -12,27 +12,12 @@ namespace CapaDatos
     {
         private readonly HospitalDBContext _context;
 
-        // Inyección del DbContext mediante constructor
+
         public EspecialidadesDAL(HospitalDBContext context)
         {
             _context = context;
         }
 
-        // Método para guardar una nueva especialidad
-        public int GuardarEspecialidades(EspecialidadesCLS oEspecialidadesCLS)
-        {
-            try
-            {
-                _context.Especialidades.Add(oEspecialidadesCLS);
-                return _context.SaveChanges(); // Retorna la cantidad de registros afectados
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        // Método para listar todas las especialidades
         public List<EspecialidadesCLS> listarEspecialidades()
         {
             try
@@ -45,20 +30,60 @@ namespace CapaDatos
             }
         }
 
-        // Método para filtrar especialidades por nombre o ID
-        public List<EspecialidadesCLS> filtrarEspecialidades(string busqueda)
+        public int GuardarEspecialidades(EspecialidadesCLS oEspecialidadesCLS)
         {
-            var query = _context.Especialidades.AsQueryable();
-
-            if (!string.IsNullOrEmpty(busqueda))
+            try
             {
-                query = query.Where(x =>
-                    x.Id.ToString().Contains(busqueda) ||
-                    x.Nombre.Contains(busqueda)
-                );
-            }
+                if (oEspecialidadesCLS.id == 0)
+                {
+                    _context.Especialidades.Add(oEspecialidadesCLS);
+                }
+                else
+                {
+                    var especialidadDB = _context.Especialidades.FirstOrDefault(p => p.id == oEspecialidadesCLS.id);
+                    if (especialidadDB != null)
+                    {
+                        especialidadDB.nombre = oEspecialidadesCLS.nombre;
+                    }
+                }
 
-            return query.ToList();
+                return _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public EspecialidadesCLS RecuperarEspecialidad(int idEspecialidad)
+        {
+            try
+            {
+                return _context.Especialidades.FirstOrDefault(p => p.id == idEspecialidad);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Eliminar un paciente (eliminación física)
+        public int EliminarEspecialidad(int idEspecialidad)
+        {
+            try
+            {
+                var especialidad = _context.Especialidades.FirstOrDefault(p => p.id == idEspecialidad);
+                if (especialidad != null)
+                {
+                    _context.Especialidades.Remove(especialidad);
+                    return _context.SaveChanges();
+                }
+                return 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

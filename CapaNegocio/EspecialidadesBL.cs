@@ -7,28 +7,29 @@ namespace CapaNegocio
     {
         private readonly EspecialidadesDAL _especialidadesDAL;
 
-        
-        public EspecialidadesBL(EspecialidadesDAL especialidadesDAL)
+
+        public EspecialidadesBL(EspecialidadesDAL especialidadDAL)
         {
-            _especialidadesDAL = especialidadesDAL;
+            _especialidadesDAL = especialidadDAL;
         }
 
-        
         public int GuardarEspecialidades(EspecialidadesCLS oEspecialidadCLS)
         {
             return _especialidadesDAL.GuardarEspecialidades(oEspecialidadCLS);
         }
 
-        
         public List<EspecialidadesCLS> listarEspecialidades()
         {
             return _especialidadesDAL.listarEspecialidades();
         }
-
-        
-        public List<EspecialidadesCLS> filtrarEspecialidades(string busqueda)
+        public EspecialidadesCLS RecuperarEspecialidad(int idEspecialidad)
         {
-            return _especialidadesDAL.filtrarEspecialidades(busqueda);
+            return _especialidadesDAL.RecuperarEspecialidad(idEspecialidad);
+        }
+
+        public int EliminarEspecialidad(int idEspecialidad)
+        {
+            return _especialidadesDAL.EliminarEspecialidad(idEspecialidad);
         }
     }
 }

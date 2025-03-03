@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    [Table("Especialidades")]
+
     public class EspecialidadesCLS
     {
-        [Key]
-        public int Id { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        public string Nombre { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
 
     }
 }

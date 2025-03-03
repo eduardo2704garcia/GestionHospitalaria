@@ -25,5 +25,15 @@ namespace CapaNegocio
         {
             return _pacientesDAL.filtrarPacientes(busqueda);
         }
+        public PacientesCLS RecuperarPaciente(int idPaciente)
+        {
+            return _pacientesDAL.RecuperarPaciente(idPaciente);
+        }
+
+        public int EliminarPaciente(int idPaciente)
+        {
+            return _pacientesDAL.EliminarPaciente(idPaciente);
+        }
+
     }
 }

@@ -1,11 +1,100 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+	ViewData["Title"] = "Tratamientos";
 }
+<h1 class="display-6 text-center fw-bold"><i class="fa fa-pills"></i>  Tratamientos</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 text-coffee fw-bold mb-0">
+            <i class="bi bi-capsule me-2"></i>Tratamientos
+        </h1>
+        <button type="button" class="btn btn-coffee btn-lg" data-bs-toggle="modal" onclick="MostrarModal()">
+            <i class="bi bi-plus-circle-fill me-2"></i>Nuevo Tratamiento
+        </button>
+    </div>
+
+    <div class="modal fade" id="modalTratamiento" tabindex="-1" aria-labelledby="modalTratamientoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fs-5 text-coffee">
+                        <i class="bi bi-capsule me-2"></i>Gestionar Tratamiento
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <form id="frmTratamiento" method="post" class="row g-4">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-coffee"
+                                       id="id" name="id" readonly>
+                                <label for="Id" class="text-muted">ID Tratamiento</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-coffee"
+                                       id="descripcion" name="descripcion" required>
+                                <label for="Descripcion" class="text-muted">Descripcion</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-control border-coffee"
+                                         id="Paciente"
+                                         name="pacienteId">
+                                    <option value="">Seleccione</option>
+                                </select>
+                                <label for="Paciente" class="text-muted"> Paciente</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="date" class="form-control border-coffee"
+                                       id="fecha" name="fecha">
+                                <label for="Fecha" class="text-muted">Fecha</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control border-coffee"
+                                       id="costo" name="costo">
+                                <label for="Costo" class="text-muted">Costo</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer border-top">
+                    <button type="button" class="btn btn-outline-coffee" onclick="LimpiarTratamiento()">
+                        <i class="bi bi-eraser me-2"></i>Limpiar
+                    </button>
+                    <button type="button" class="btn btn-coffee" onclick="GuardarTratamiento()">
+                        <i class="bi bi-save me-2"></i>Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow">
+        <div class="card-header bg-coffee text-white py-3">
+            <h5 class="card-title mb-0">
+                <i class="bi bi-list-task me-2"></i>Registro de Tratamiento
+            </h5>
+        </div>
+        <div class="card-body p-0 bg-light-coffee">
+            <div class="table-responsive">
+                <div id="divContenedorTabla" class="rounded-3"></div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="~/js/generico.js"></script>
+<script src="~/js/Tratamientos.js"></script>

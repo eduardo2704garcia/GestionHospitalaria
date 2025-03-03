@@ -27,7 +27,7 @@ namespace CapaPresentacion.Controllers
             return Json(lista);
         }
 
-        public IActionResult GuardarEspecialidades([FromBody] EspecialidadesCLS especialidad)
+        public IActionResult GuardarEspecialidades(EspecialidadesCLS especialidad)
         {
             int resultado = _especialidadesBL.GuardarEspecialidades(especialidad);
             return Content(resultado.ToString());

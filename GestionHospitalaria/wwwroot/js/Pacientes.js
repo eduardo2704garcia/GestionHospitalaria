@@ -24,18 +24,23 @@ function GuardarPaciente() {
         forma.classList.add("was-validated");
         return;
     }
-    fetchPost("Pacientes/GuardarPaciente", "text", frm, function (res) {
-        LimpiarDatos("frmPaciente");
-        Exito("Registro Guardado con Éxito");
-        listarPacientes();
+    fetchPost("Tratamientos/GuardarTratamiento", "text", frm, function (res) {
+        LimpiarDatos("frmTratamiento");
+        Exito("Registro Guardado Con Éxito");
+        ListarTratamientos();
 
-        var myModal = bootstrap.Modal.getInstance(document.getElementById('modalPaciente'));
+        // Quita el foco del elemento activo antes de ocultar el modal
+        document.activeElement.blur();
+
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('modalTratamiento'));
         myModal.hide();
     });
+
 }
 
 function MostrarModal() {
     LimpiarDatos("frmPaciente");
+    document.activeElement.blur();
     var myModal = new bootstrap.Modal(document.getElementById('modalPaciente'));
     myModal.show();
 }
@@ -50,7 +55,7 @@ function Editar(id) {
         setN("telefono", data.telefono);
         setN("email", data.email);
         setN("direccion", data.direccion);
-
+        document.activeElement.blur();
         var myModal = new bootstrap.Modal(document.getElementById('modalPaciente'));
         myModal.show();
     });

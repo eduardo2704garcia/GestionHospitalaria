@@ -29,7 +29,6 @@ namespace CapaPresentacion.Controllers
         public IActionResult GuardarPaciente(PacientesCLS paciente)
         {
             int resultado = _pacientesBL.GuardarPaciente(paciente);
-            // Puedes retornar un simple mensaje o el número de registros afectados
             return Content(resultado.ToString());
         }
 

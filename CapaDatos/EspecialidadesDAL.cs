@@ -37,7 +37,6 @@ namespace CapaDatos
                 }
                 else
                 {
-                    // Actualización: se recupera el paciente existente y se actualizan sus propiedades.
                     var especialidadDB = _context.Especialidades.FirstOrDefault(p => p.id == oEspecialidadesCLS.id);
                     if (especialidadDB != null)
                     {

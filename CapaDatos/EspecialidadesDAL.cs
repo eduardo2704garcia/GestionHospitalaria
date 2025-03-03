@@ -1,7 +1,10 @@
 ﻿using CapaEntidad;
+using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace CapaDatos
 {

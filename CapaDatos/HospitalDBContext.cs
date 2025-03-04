@@ -18,6 +18,7 @@ namespace CapaDatos
         public DbSet<CitasCLS> Citas { get; set; }
         public DbSet<EspecialidadesCLS> Especialidades { get; set; }
         public DbSet<TratamientosCLS> Tratamientos { get; set; }
+        public DbSet<FacturacionCLS> Facturacion { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,7 @@ namespace CapaDatos
             modelBuilder.Entity<CitasCLS>().ToTable("Citas");
             modelBuilder.Entity<EspecialidadesCLS>().ToTable("Especialidades");
             modelBuilder.Entity<TratamientosCLS>().ToTable("Tratamientos");
+            modelBuilder.Entity<FacturacionCLS>().ToTable("Facturacion");
         }
     }
 }

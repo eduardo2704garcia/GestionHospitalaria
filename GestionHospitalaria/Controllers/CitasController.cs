@@ -1,83 +1,44 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CapaEntidad;
+using CapaNegocio;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestionHospitalaria.Controllers
 {
     public class CitasController : Controller
     {
-        // GET: CitasController
+        private readonly CitasBL _citasBL;
+        public CitasController(CitasBL citasBL)
+        {
+            _citasBL = citasBL;
+        }
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: CitasController/Details/5
-        public ActionResult Details(int id)
+        public JsonResult ListarCitas()
         {
-            return View();
+            List<CitasCLS> lista = _citasBL.ListarCitas();
+            return Json(lista);
         }
 
-        // GET: CitasController/Create
-        public ActionResult Create()
+        public IActionResult GuardarCita(CitasCLS oCitaCLS)
         {
-            return View();
+            int resultado = _citasBL.GuardarCita(oCitaCLS);
+            return Content(resultado.ToString());
         }
 
-        // POST: CitasController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public JsonResult RecuperarCita(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            CitasCLS cita = _citasBL.RecuperarCita(id);
+            return Json(cita);
         }
 
-        // GET: CitasController/Edit/5
-        public ActionResult Edit(int id)
+        public IActionResult EliminarCita(int id)
         {
-            return View();
-        }
-
-        // POST: CitasController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CitasController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CitasController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            int resultado = _citasBL.EliminarCita(id);
+            return Content(resultado.ToString());
         }
     }
 }

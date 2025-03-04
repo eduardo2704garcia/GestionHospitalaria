@@ -17,6 +17,10 @@ builder.Services.AddScoped<EspecialidadesDAL>();
 builder.Services.AddScoped<EspecialidadesBL>();
 builder.Services.AddScoped<MedicosDAL>();
 builder.Services.AddScoped<MedicosBL>();
+builder.Services.AddScoped<CitasDAL>();
+builder.Services.AddScoped<CitasBL>();
+builder.Services.AddScoped<FacturacionDAL>();
+builder.Services.AddScoped<FacturacionBL>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Registrar el DbContext usando la cadena de conexión correcta
+// Registrar el DbContext usando la cadena de conexiï¿½n correcta
 builder.Services.AddDbContext<HospitalDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("HospitalDBConnection")));
 
@@ -43,7 +43,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Acceso}/{action=Login}/{id?}");
 
 app.Run();
 

@@ -1,4 +1,5 @@
 ﻿using CapaEntidad;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Data;
@@ -36,30 +37,35 @@ namespace CapaDatos
             {
                 if (oEspecialidadesCLS.id == 0)
                 {
-                    _context.Especialidades.Add(oEspecialidadesCLS);
+                    return _context.Database.ExecuteSqlRaw(
+                        "EXEC usp_InsertarEspecialidad @p0",
+                        oEspecialidadesCLS.nombre
+                    );
                 }
                 else
                 {
-                    var especialidadDB = _context.Especialidades.FirstOrDefault(p => p.id == oEspecialidadesCLS.id);
-                    if (especialidadDB != null)
-                    {
-                        especialidadDB.nombre = oEspecialidadesCLS.nombre;
-                    }
+                    return _context.Database.ExecuteSqlRaw(
+                        "EXEC usp_ActualizarEspecialidad @p0, @p1",
+                        oEspecialidadesCLS.id,
+                        oEspecialidadesCLS.nombre
+                    );
                 }
-
-                return _context.SaveChanges();
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
 
         public EspecialidadesCLS RecuperarEspecialidad(int idEspecialidad)
         {
             try
             {
-                return _context.Especialidades.FirstOrDefault(p => p.id == idEspecialidad);
+                return _context.Especialidades
+                    .FromSqlRaw("EXEC usp_RecuperarEspecialidad @p0", idEspecialidad)
+                    .AsEnumerable()
+                    .FirstOrDefault();
             }
             catch (Exception)
             {
@@ -67,23 +73,21 @@ namespace CapaDatos
             }
         }
 
-        // Eliminar un paciente (eliminación física)
+
         public int EliminarEspecialidad(int idEspecialidad)
         {
             try
             {
-                var especialidad = _context.Especialidades.FirstOrDefault(p => p.id == idEspecialidad);
-                if (especialidad != null)
-                {
-                    _context.Especialidades.Remove(especialidad);
-                    return _context.SaveChanges();
-                }
-                return 0;
+                return _context.Database.ExecuteSqlRaw(
+                    "EXEC usp_EliminarEspecialidad @p0",
+                    idEspecialidad
+                );
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
     }
 }

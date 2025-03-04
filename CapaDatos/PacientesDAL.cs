@@ -1,7 +1,9 @@
 ﻿using CapaEntidad;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Data.SqlClient;
 
 namespace CapaDatos
 {
@@ -14,107 +16,74 @@ namespace CapaDatos
             _context = context;
         }
 
-        // Listar todos los pacientes
         public List<PacientesCLS> listarPacientes()
         {
-            try
-            {
-                return _context.Pacientes.ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Pacientes
+                .FromSqlRaw("EXEC usp_ListarPacientes")
+                .ToList();
         }
 
-        // Filtrar pacientes por un texto de búsqueda (aplica a varios campos)
         public List<PacientesCLS> filtrarPacientes(string busqueda)
         {
-            try
-            {
-                var query = _context.Pacientes.AsQueryable();
-
-                if (!string.IsNullOrEmpty(busqueda))
-                {
-                    query = query.Where(x =>
-                        x.id.ToString().Contains(busqueda) ||
-                        x.nombre.Contains(busqueda) ||
-                        x.apellido.Contains(busqueda) ||
-                        x.telefono.Contains(busqueda) ||
-                        x.email.Contains(busqueda) ||
-                        x.direccion.Contains(busqueda));
-                }
-
-                return query.ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Pacientes
+                .FromSqlRaw("EXEC uspFiltrarPacientes @p0", busqueda ?? "")
+                .ToList();
         }
-
-        // Guardar o actualizar un paciente.
-        // Si el id es 0, se asume inserción; si es distinto, se actualiza el registro existente.
         public int GuardarPacientes(PacientesCLS oPacientesCLS)
         {
             try
             {
                 if (oPacientesCLS.id == 0)
                 {
-                    _context.Pacientes.Add(oPacientesCLS);
+                    return _context.Database.ExecuteSqlRaw(
+                        "EXEC usp_InsertarPaciente @p0, @p1, @p2, @p3, @p4, @p5",
+                        oPacientesCLS.nombre,
+                        oPacientesCLS.apellido,
+                        oPacientesCLS.fechaNacimiento,
+                        oPacientesCLS.telefono,
+                        oPacientesCLS.email,
+                        oPacientesCLS.direccion
+                    );
                 }
                 else
                 {
-                    var pacienteDB = _context.Pacientes.FirstOrDefault(p => p.id == oPacientesCLS.id);
-                    if (pacienteDB != null)
-                    {
-                        pacienteDB.nombre = oPacientesCLS.nombre;
-                        pacienteDB.apellido = oPacientesCLS.apellido;
-                        pacienteDB.fechaNacimiento = oPacientesCLS.fechaNacimiento;
-                        pacienteDB.telefono = oPacientesCLS.telefono;
-                        pacienteDB.email = oPacientesCLS.email;
-                        pacienteDB.direccion = oPacientesCLS.direccion;
-                    }
+                    return _context.Database.ExecuteSqlRaw(
+                        "EXEC usp_ActualizarPaciente @p0, @p1, @p2, @p3, @p4, @p5, @p6",
+                        oPacientesCLS.id,
+                        oPacientesCLS.nombre,
+                        oPacientesCLS.apellido,
+                        oPacientesCLS.fechaNacimiento,
+                        oPacientesCLS.telefono,
+                        oPacientesCLS.email,
+                        oPacientesCLS.direccion
+                    );
                 }
-
-                return _context.SaveChanges();
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
-        // Recuperar un paciente por su id
         public PacientesCLS RecuperarPaciente(int idPaciente)
         {
-            try
-            {
-                return _context.Pacientes.FirstOrDefault(p => p.id == idPaciente);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Pacientes
+                .FromSqlRaw("EXEC usp_RecuperarPaciente @p0", idPaciente)
+                .AsEnumerable()
+                .FirstOrDefault();
         }
 
-        // Eliminar un paciente (eliminación física)
         public int EliminarPaciente(int idPaciente)
         {
             try
             {
-                var paciente = _context.Pacientes.FirstOrDefault(p => p.id == idPaciente);
-                if (paciente != null)
-                {
-                    _context.Pacientes.Remove(paciente);
-                    return _context.SaveChanges();
-                }
+                return _context.Database.ExecuteSqlRaw("EXEC usp_EliminarPaciente @p0", idPaciente);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar paciente: {ex.Message}");
                 return 0;
             }
-            catch (Exception)
-            {
-                throw;
-            }
         }
+
     }
 }

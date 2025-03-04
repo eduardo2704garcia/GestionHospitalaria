@@ -21,6 +21,8 @@ builder.Services.AddScoped<CitasDAL>();
 builder.Services.AddScoped<CitasBL>();
 builder.Services.AddScoped<FacturacionDAL>();
 builder.Services.AddScoped<FacturacionBL>();
+builder.Services.AddScoped<AdministradorDAL>();
+builder.Services.AddScoped<AdministradorBL>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

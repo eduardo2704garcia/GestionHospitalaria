@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaEntidad;
+using Microsoft.EntityFrameworkCore;
 
 namespace CapaDatos
 {
@@ -43,73 +44,29 @@ namespace CapaDatos
 
         public int GuardarFactura(FacturacionCLS oFacturaCLS)
         {
-            try
+            if (oFacturaCLS.Id == 0)
             {
-                if (oFacturaCLS.Id == 0)
-                {
-                    _context.Facturacion.Add(oFacturaCLS);
-                }
-                else
-                {
-                    var facturaDB = _context.Facturacion.FirstOrDefault(f => f.Id == oFacturaCLS.Id);
-                    if (facturaDB != null)
-                    {
-                        facturaDB.PacienteId = oFacturaCLS.PacienteId;
-                        facturaDB.Monto = oFacturaCLS.Monto;
-                        facturaDB.FechaPago = oFacturaCLS.FechaPago;
-                        facturaDB.MetodoPago = oFacturaCLS.MetodoPago;
-                    }
-                }
-                return _context.SaveChanges();
+                return _context.Database.ExecuteSqlRaw("EXEC uspInsertarFactura @p0, @p1, @p2, @p3",
+                    oFacturaCLS.Monto, oFacturaCLS.FechaPago, oFacturaCLS.MetodoPago, oFacturaCLS.PacienteId);
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Error en GuardarCita: " + ex.Message);
-                throw;
+                return _context.Database.ExecuteSqlRaw("EXEC uspActualizarFactura @p0, @p1, @p2, @p3, @p4",
+                    oFacturaCLS.Id, oFacturaCLS.Monto, oFacturaCLS.FechaPago, oFacturaCLS.MetodoPago, oFacturaCLS.PacienteId);
             }
         }
 
-
         public FacturacionCLS RecuperarFactura(int id)
         {
-            try
-            {
-                var factura = (from f in _context.Facturacion
-                            join p in _context.Pacientes on f.PacienteId equals p.id
-                            where f.Id == id
-                            select new FacturacionCLS
-                            {
-                                Id = f.Id,
-                                Monto = f.Monto,
-                                FechaPago = f.FechaPago,
-                                MetodoPago = f.MetodoPago,
-                                PacienteId = f.PacienteId,
-                                NombrePaciente = p.nombre,
-                            }).FirstOrDefault();
-                return factura;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Facturacion
+                .FromSqlRaw("EXEC uspListarFacturas")
+                .AsEnumerable()
+                .FirstOrDefault(f => f.Id == id);
         }
 
         public int EliminarFactura(int id)
         {
-            try
-            {
-                var factura = _context.Facturacion.FirstOrDefault(f => f.Id == id);
-                if (factura != null)
-                {
-                    _context.Facturacion.Remove(factura);
-                    return _context.SaveChanges();
-                }
-                return 0;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Database.ExecuteSqlRaw("EXEC uspEliminarFactura @p0", id);
         }
     }
 }

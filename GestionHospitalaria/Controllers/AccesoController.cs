@@ -24,5 +24,41 @@ namespace CapaPresentacion.Controllers
             return View();
         }
 
+
+        private readonly AdministradorBL _adminBL;
+
+        public AccesoController(AdministradorBL adminBL)
+        {
+            _adminBL = adminBL;
+        }
+
+        [HttpPost]
+        public IActionResult LoginAdministrador([FromBody] AdministradorCLS admin)
+        {
+            var usuario = _adminBL.LoginAdministrador(admin.Correo, admin.Clave);
+            if (usuario != null)
+            {
+                // Por ejemplo, establecer la sesión o devolver un JSON con éxito.
+                return Json(new { success = true, adminId = usuario.Id, nombre = usuario.Nombre });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Credenciales inválidas." });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult RegistrarAdministrador([FromBody] AdministradorCLS admin)
+        {
+            int result = _adminBL.RegistrarAdministrador(admin);
+            if (result > 0)
+            {
+                return Json(new { success = true, message = "Registrado con éxito." });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Error al registrar." });
+            }
+        }
     }
 }

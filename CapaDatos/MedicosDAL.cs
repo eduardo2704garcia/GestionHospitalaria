@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaEntidad;
+using Microsoft.EntityFrameworkCore;
 
 namespace CapaDatos
 {
@@ -15,8 +16,6 @@ namespace CapaDatos
         {
             _context = context;
         }
-
-        // Listar tratamientos con el nombre del paciente (JOIN con Pacientes)
         public List<MedicosCLS> ListarMedicos()
         {
             try
@@ -41,77 +40,31 @@ namespace CapaDatos
             }
         }
 
-        // Guardar o actualizar un tratamiento
         public int GuardarMedico(MedicosCLS oMedicoCLS)
         {
-            try
+            if (oMedicoCLS.Id == 0)
             {
-                if (oMedicoCLS.Id == 0)
-                {
-                    _context.Medicos.Add(oMedicoCLS);
-                }
-                else
-                {
-                    var MedicoDB = _context.Medicos.FirstOrDefault(m => m.Id == oMedicoCLS.Id);
-                    if (MedicoDB != null)
-                    {
-                        MedicoDB.Nombre = oMedicoCLS.Nombre;
-                        MedicoDB.Apellido = oMedicoCLS.Apellido;
-                        MedicoDB.Telefono = oMedicoCLS.Telefono;
-                        MedicoDB.Email = oMedicoCLS.Email;
-                        MedicoDB.EspecialidadId = oMedicoCLS.EspecialidadId;
-                    }
-                }
-                return _context.SaveChanges();
+                return _context.Database.ExecuteSqlRaw("EXEC uspInsertarMedico @p0, @p1, @p2, @p3, @p4",
+                    oMedicoCLS.Nombre, oMedicoCLS.Apellido, oMedicoCLS.Telefono, oMedicoCLS.Email, oMedicoCLS.EspecialidadId);
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Error en GuardarEspecialidad: " + ex.Message);
-                throw;
+                return _context.Database.ExecuteSqlRaw("EXEC uspActualizarMedico @p0, @p1, @p2, @p3, @p4, @p5",
+                    oMedicoCLS.Id, oMedicoCLS.Nombre, oMedicoCLS.Apellido, oMedicoCLS.Telefono, oMedicoCLS.Email, oMedicoCLS.EspecialidadId);
             }
         }
 
         public MedicosCLS RecuperarMedico(int id)
         {
-            try
-            {
-                var Medico = (from m in _context.Medicos
-                                   join e in _context.Especialidades on m.EspecialidadId equals e.id
-                                   where m.Id == id
-                                   select new MedicosCLS
-                                   {
-                                       Id = m.Id,
-                                       Nombre = m.Nombre,
-                                       Apellido = m.Apellido,
-                                       Telefono = m.Telefono,
-                                       Email = m.Email,
-                                       EspecialidadId = m.EspecialidadId,
-                                       NombreEspecialidad = e.nombre
-                                   }).FirstOrDefault();
-                return Medico;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Medicos
+                .FromSqlRaw("EXEC uspListarMedicos")
+                .AsEnumerable()
+                .FirstOrDefault(m => m.Id == id);
         }
 
         public int EliminarMedico(int id)
         {
-            try
-            {
-                var medico = _context.Medicos.FirstOrDefault(m => m.Id == id);
-                if (medico != null)
-                {
-                    _context.Medicos.Remove(medico);
-                    return _context.SaveChanges();
-                }
-                return 0;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _context.Database.ExecuteSqlRaw("EXEC uspEliminarMedico @p0", id);
         }
     }
 }

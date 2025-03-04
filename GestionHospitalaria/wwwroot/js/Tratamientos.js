@@ -56,7 +56,7 @@ function GuardarTratamiento() {
             if (myModal) {
                 myModal.hide();
             }
-        }, 150); // Retrasa 150 milisegundos (ajusta este valor si es necesario)
+        }, 150);
     });
 
 }
@@ -81,7 +81,7 @@ function Editar(id) {
 
 function Eliminar(id) {
     fetchGet("Tratamientos/RecuperarTratamiento/?id=" + id, "json", function (data) {
-        Confirmar(undefined, "¿Desea eliminar el Tratamiento " + data.Descripcion + " ?", function () {
+        Confirmar(undefined, "¿Desea eliminar el Tratamiento" + data.id + " ?", function () {
             fetchGet("Tratamientos/EliminarTratamiento/?id=" + id, "text", function (r) {
                 Exito("Tratamiento Eliminado con Éxito");
                 ListarTratamientos();

@@ -1,9 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Registrar";
+    Layout = null;
 }
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="~/css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Registro - SB Admin</title>
 </head>
 <body class="bg-primary">
     <div id="layoutAuthentication">
@@ -27,7 +35,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="inputLastName" type="text" name="Apellido"placeholder="Ingresa tu apellido" required />
+                                                    <input class="form-control" id="inputLastName" type="text" name="Apellido" placeholder="Ingresa tu apellido" required />
                                                     <label for="inputLastName">Primer Apellido</label>
                                                 </div>
                                             </div>
@@ -40,7 +48,6 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputPassword" type="password" name="Clave" placeholder="Crear Contraseña" required />
-
                                                     <label for="inputPassword">Contraseña</label>
                                                 </div>
                                             </div>
@@ -66,5 +73,6 @@
     </div>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/font-awesome/js/all.js"></script>
-    <script src="~/js/registro.js"></script>
+	<script src="~/js/registro.js"></script>
 </body>
+</html>

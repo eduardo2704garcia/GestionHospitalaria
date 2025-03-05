@@ -1,23 +1,26 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("frmLogin");
-    if (!loginForm) {
-        console.error("No se encontró el formulario de login con id 'frmLogin'.");
-        return;
-    }
+﻿document.getElementById("frmLogin").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
 
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();  // Evita el envío tradicional
+    const correo = document.getElementById("inputEmail").value;
+    const clave = document.getElementById("inputPassword").value;
 
-        // Extrae los valores
-        const correo = document.getElementById("inputEmail").value.trim();
-        const clave = document.getElementById("inputPassword").value.trim();
+    try {
+        const response = await fetch("/Acceso/IniciarSesion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `correo=${encodeURIComponent(correo)}&clave=${encodeURIComponent(clave)}`,
+        });
 
-        // Valida que sean los datos requeridos
-        if (correo === "juan.perez@example.com" && clave === "Admin123!") {
-            // Si coinciden, redirige al Home
-            window.location.href = "/Home/Index";
+        if (response.redirected) {
+            window.location.href = response.url; // Redirigir al dashboard
         } else {
-            alert("Credenciales inválidas.");
+            const error = await response.text();
+            alert(error); // Mostrar mensaje de error
         }
-    });
+    } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+        alert("Ocurrió un error al intentar iniciar sesión. Por favor, inténtalo de nuevo.");
+    }
 });

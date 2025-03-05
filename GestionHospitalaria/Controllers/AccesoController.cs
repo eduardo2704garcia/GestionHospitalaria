@@ -14,50 +14,64 @@ namespace CapaPresentacion.Controllers
 {
     public class AccesoController : Controller
     {
+        private readonly AdministradorBL _administradorBL;
+
+        public AccesoController(AdministradorBL administradorBL)
+        {
+            _administradorBL = administradorBL;
+        }
+
         public IActionResult Login()
         {
-            return View();
+            return View(); 
+        }
+
+        public IActionResult IniciarSesion(string correo, string clave)
+        {
+            bool credencialesValidas = _administradorBL.ValidarCredenciales(correo, clave);
+
+            if (credencialesValidas)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Error = "Correo o contraseña incorrectos";
+                return View("Login");
+            }
         }
 
         public IActionResult Registrar()
         {
-            return View();
-        }
-
-
-        private readonly AdministradorBL _adminBL;
-
-        public AccesoController(AdministradorBL adminBL)
-        {
-            _adminBL = adminBL;
+            return View(); 
         }
 
         [HttpPost]
-        public IActionResult LoginAdministrador([FromBody] AdministradorCLS admin)
-        {
-            var usuario = _adminBL.LoginAdministrador(admin.Correo, admin.Clave);
-            if (usuario != null)
-            {
-                // Por ejemplo, establecer la sesión o devolver un JSON con éxito.
-                return Json(new { success = true, adminId = usuario.Id, nombre = usuario.Nombre });
-            }
-            else
-            {
-                return Json(new { success = false, message = "Credenciales inválidas." });
-            }
-        }
-
+        // POST: Acceso/Registrar
         [HttpPost]
-        public IActionResult RegistrarAdministrador([FromBody] AdministradorCLS admin)
+        public IActionResult Registrar(AdministradorCLS administrador)
         {
-            int result = _adminBL.RegistrarAdministrador(admin);
-            if (result > 0)
+            try
             {
-                return Json(new { success = true, message = "Registrado con éxito." });
+                if (ModelState.IsValid)
+                {
+                    bool resultado = _administradorBL.RegistrarAdministrador(administrador);
+
+                    if (resultado)
+                    {
+                        return RedirectToAction("Login", "Acceso");
+                    }
+                    else
+                    {
+                        ViewBag.Error = "Error al registrar el administrador";
+                    }
+                }
+                return View(administrador);
             }
-            else
+            catch (Exception ex)
             {
-                return Json(new { success = false, message = "Error al registrar." });
+                ViewBag.Error = ex.Message;
+                return View(administrador);
             }
         }
     }

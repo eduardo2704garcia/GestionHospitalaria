@@ -19,31 +19,27 @@ namespace CapaDatos
             _context = context;
         }
 
-        public AdministradorCLS LoginAdministrador(string correo, string clave)
+        public List<AdministradorCLS> ListarAdministradores()
         {
-            var paramCorreo = new SqlParameter("@correo", correo);
-            var paramClave = new SqlParameter("@clave", clave);
-
-            var admin = _context.Administrador
-                .FromSqlRaw("EXEC uspLoginAdministrador @correo, @clave", paramCorreo, paramClave)
-                .AsEnumerable()
-                .FirstOrDefault();
-
-            return admin;
+            return _context.Administrador.ToList();
+        }
+        public bool ExisteCorreo(string correo)
+        {
+            return _context.Administrador.Any(a => a.Correo == correo);
         }
 
-        public int RegistrarAdministrador(AdministradorCLS admin)
+        public bool CrearAdministrador(AdministradorCLS administrador)
         {
-            var paramNombre = new SqlParameter("@nombre", admin.Nombre);
-            var paramApellido = new SqlParameter("@apellido", admin.Apellido);
-            var paramCorreo = new SqlParameter("@correo", admin.Correo);
-            var paramClave = new SqlParameter("@clave", admin.Clave);
-
-            int result = _context.Database.ExecuteSqlRaw(
-                "EXEC uspRegistrarAdministrador @nombre, @apellido, @correo, @clave",
-                paramNombre, paramApellido, paramCorreo, paramClave);
-
-            return result;
+            try
+            {
+                _context.Administrador.Add(administrador);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

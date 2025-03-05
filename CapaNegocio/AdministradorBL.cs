@@ -10,21 +10,27 @@ namespace CapaNegocio
 {
     public class AdministradorBL
     {
-        private readonly AdministradorDAL _adminDAL;
+        private readonly AdministradorDAL _administradorDAL;
 
-        public AdministradorBL(AdministradorDAL adminDAL)
+        public AdministradorBL(AdministradorDAL administradorDAL)
         {
-            _adminDAL = adminDAL;
+            _administradorDAL = administradorDAL;
         }
 
-        public AdministradorCLS LoginAdministrador(string correo, string clave)
+        public bool ValidarCredenciales(string correo, string clave)
         {
-            return _adminDAL.LoginAdministrador(correo, clave);
+            List<AdministradorCLS> administradores = _administradorDAL.ListarAdministradores();
+            return administradores.Any(a => a.Correo == correo && a.Clave == clave);
         }
-
-        public int RegistrarAdministrador(AdministradorCLS admin)
+        public bool RegistrarAdministrador(AdministradorCLS administrador)
         {
-            return _adminDAL.RegistrarAdministrador(admin);
+            // Validar correo único
+            if (_administradorDAL.ExisteCorreo(administrador.Correo))
+            {
+                throw new Exception("El correo electrónico ya está registrado");
+            }
+
+            return _administradorDAL.CrearAdministrador(administrador);
         }
     }
 

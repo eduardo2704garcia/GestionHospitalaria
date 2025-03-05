@@ -1,53 +1,40 @@
-﻿document.addEventdocument.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("frmRegistro"); const form = document.getElementById("frmRegistro");
-    if (!form) {
-        console.warn("Formulario 'frmRegistro' no encontrado.");
-        return;
-    }
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+﻿document.getElementById("frmRegistro").addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-        const primerNombre = document.getElementById("inputFirstName").value.trim();
-        const primerApellido = document.getElementById("inputLastName").value.trim();
-        const correo = document.getElementById("inputEmail").value.trim();
-        const clave = document.getElementById("inputPassword").value.trim();
+    const formData = {
+        Nombre: document.getElementById("inputFirstName").value,
+        Apellido: document.getElementById("inputLastName").value,
+        Correo: document.getElementById("inputEmail").value,
+        Clave: document.getElementById("inputPassword").value
+    };
 
-        if (!primerNombre || !primerApellido || !correo || !clave) {
-            alert("Por favor, complete todos los campos.");
-            return;
-        }
-
-        const datos = {
-            Nombre: primerNombre,
-            Apellido: primerApellido,
-            Correo: correo,
-            Clave: clave
-        };
-
-        fetch("/Acceso/RegistrarAdministrador", {
+    try {
+        const response = await fetch("/Acceso/Registrar", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(datos)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Error en el servidor");
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    alert("Registrado con éxito");
-                    window.location.href = "/Acceso/Login";
-                } else {
-                    alert(data.message || "Error al registrar");
-                }
-            })
-            .catch(error => {
-                console.error("Error en el registro:", error);
-                alert("Ocurrió un error al registrar. Intente nuevamente.");
-            });
-    });
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            window.location.href = "/Acceso/Login";
+        } else {
+            const error = await response.text();
+            mostrarError(error);
+        }
+    } catch (error) {
+        mostrarError("Error de conexión con el servidor");
+    }
 });
+
+function mostrarError(mensaje) {
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "alert alert-danger mt-3";
+    errorDiv.textContent = mensaje;
+
+    const cardBody = document.querySelector(".card-body");
+    cardBody.appendChild(errorDiv);
+
+    setTimeout(() => errorDiv.remove(), 5000);
+}
